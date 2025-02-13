@@ -74,19 +74,31 @@ const ImageConverter = () => {
   };
 
   return (
-    <div className="min-h-screen w-full py-12">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center mb-8">Image Converter</h1>
+    <div className="min-h-screen w-full py-12 relative">
+      {/* Fancy Background */}
+      <div 
+        className="fixed inset-0 -z-10" 
+        style={{
+          background: "linear-gradient(102.3deg, rgba(147,39,143,1) 5.9%, rgba(234,172,232,1) 64%, rgba(246,219,245,1) 89%)",
+          opacity: 0.9
+        }}
+      />
+      
+      {/* Content with glass effect */}
+      <div className="container mx-auto px-4 relative z-10">
+        <h1 className="text-4xl font-bold text-center mb-8 text-white drop-shadow-lg">
+          Image Converter
+        </h1>
         
-        <Card className="max-w-2xl mx-auto p-6">
+        <Card className="max-w-2xl mx-auto p-6 glass backdrop-blur-md bg-white/30 border border-white/20">
           <div className="space-y-6">
-            <div className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg p-8">
-              <ImageIcon className="w-12 h-12 text-gray-400 mb-4" />
+            <div className="flex flex-col items-center justify-center border-2 border-dashed border-white/30 rounded-lg p-8 bg-white/10">
+              <ImageIcon className="w-12 h-12 text-white mb-4" />
               <Input
                 type="file"
                 accept="image/*"
                 onChange={handleFileSelect}
-                className="max-w-xs"
+                className="max-w-xs bg-white/20 text-white placeholder-white/70"
               />
             </div>
 
@@ -96,13 +108,16 @@ const ImageConverter = () => {
                   <select
                     value={format}
                     onChange={(e) => setFormat(e.target.value)}
-                    className="px-4 py-2 border rounded-md"
+                    className="px-4 py-2 rounded-md bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-white/50"
                   >
                     <option value="png">PNG</option>
                     <option value="jpeg">JPEG</option>
                     <option value="webp">WEBP</option>
                   </select>
-                  <Button onClick={convertImage}>
+                  <Button 
+                    onClick={convertImage}
+                    className="bg-white/20 hover:bg-white/30 text-white border border-white/30"
+                  >
                     <Upload className="w-4 h-4 mr-2" />
                     Convert
                   </Button>
@@ -113,9 +128,12 @@ const ImageConverter = () => {
                     <img
                       src={convertedImage}
                       alt="Converted"
-                      className="max-w-full h-auto rounded-lg"
+                      className="max-w-full h-auto rounded-lg shadow-xl"
                     />
-                    <Button onClick={downloadImage}>
+                    <Button 
+                      onClick={downloadImage}
+                      className="bg-white/20 hover:bg-white/30 text-white border border-white/30"
+                    >
                       <Download className="w-4 h-4 mr-2" />
                       Download
                     </Button>
