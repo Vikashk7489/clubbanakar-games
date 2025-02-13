@@ -35,6 +35,19 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full">
+      {/* Animated Banner */}
+      <div className="w-full bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-[length:200%_100%] animate-[gradient_8s_linear_infinite] py-2 text-white font-medium">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center space-x-2">
+            <span className="inline-block animate-bounce">🎉</span>
+            <p className="text-center">
+              Convert your images to any format instantly! Try it now for free!
+            </p>
+            <span className="inline-block animate-bounce">✨</span>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-background/95 z-0" />
